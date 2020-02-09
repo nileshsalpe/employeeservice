@@ -12,11 +12,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
+@RequestMapping("/v1")
 public class EmployeeController {
 
     private final EmployeeConverter employeeConverter;
@@ -41,18 +43,14 @@ public class EmployeeController {
     }
 
     @PostMapping("/employees")
-    GetEmployeeResponse newEmployee(@RequestBody CreateEmployeeRequest createEmployeeRequest) {
+    GetEmployeeResponse newEmployee(@Valid @RequestBody CreateEmployeeRequest createEmployeeRequest) {
        return employeeConverter.toGetEmployeeResponse(employeeService.createEmployee(employeeConverter.toCreateEmpDAO(createEmployeeRequest)));
 
     }
 
     @GetMapping("/employees/{empId}")
     GetEmployeeResponse getEmployee(@PathVariable  String empId) {
-        try {
-            return employeeConverter.toGetEmployeeResponse(employeeService.findById(UUID.fromString(empId)));
-        }catch (IllegalArgumentException ex) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Employee not found.", ex);
-        }
+        return employeeConverter.toGetEmployeeResponse(employeeService.findById(UUID.fromString(empId)));
     }
 
     @DeleteMapping("/employees/{empId}")

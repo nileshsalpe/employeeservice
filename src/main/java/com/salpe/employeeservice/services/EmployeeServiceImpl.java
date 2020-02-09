@@ -4,6 +4,7 @@ package com.salpe.employeeservice.services;
 import com.salpe.employeeservice.repository.nosql.cassandra.salpe.EmployeeDAO;
 import com.salpe.employeeservice.repository.nosql.cassandra.salpe.EmployeeKey;
 import com.salpe.employeeservice.repository.nosql.cassandra.salpe.EmployeeRepository;
+import com.salpe.employeeservice.services.exceptions.EmployeeNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -41,7 +42,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         if (emp.isPresent()){
             return emp.get();
         }else{
-            throw new IllegalArgumentException("Employee not found");
+            throw new EmployeeNotFoundException(id , String.format("Employee with %s is not found", id), new IllegalArgumentException());
         }
     }
 }
