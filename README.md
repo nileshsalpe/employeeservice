@@ -6,6 +6,8 @@ http://localhost:8080/swagger-ui.html
 
 
 ### InSights 
+// TODO - arrage conent based on aspects 
+
 - API models should be different than DAO and Business Models. Business model and DAO can be same as it is not exposed to external users.
 - Need API versioning strategy from start.
 - Need to calculate API load using requests per seconds per api.
@@ -23,6 +25,7 @@ http://localhost:8080/swagger-ui.html
     - Error Rate (5XX) per [window 1 sec to 1 day]
     - Latency (P90, P99, P99.99) to check slowest requests in system per [window 1 sec to 1 day] with sum/avg/max/min
     - Syetem level metrics per node for memory/cpu/network usage
+- Need to have alerts based on threshholds for errors/latency.
  - Need health check API 
  - Need user level throttling to avoid attack on system 
  - Need log aggregation system like ELK stack to search request based on user id or requestId, it should also generate request chain of all services from source to destination. Search fields should have minimum 
@@ -36,6 +39,7 @@ http://localhost:8080/swagger-ui.html
 - Environments for dev/beta/pre-prod should be  simillar may differ in capacity though.
 - Need for feature management - like experiment new feature with selected user pools  and make GA and feature retirement.
 - Micro-service should not be just wrapper over data store it should have some logic. Always need to make balance between number of fine grained micro-services and functionality. If not there could be very large number of micro-services.
+
 
    
     
