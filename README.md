@@ -29,7 +29,7 @@ http://localhost:8080/swagger-ui.html
    - UserId
    - RequestId
    - Exception Type
-   - Error code 
+   - Response code 
    - Exception message
    
 - Need strategy to mock external apis are integration testing 
