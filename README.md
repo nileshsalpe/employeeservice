@@ -39,7 +39,7 @@ http://localhost:8080/swagger-ui.html
 - Environments for dev/beta/pre-prod should be  simillar may differ in capacity though.
 - Need for feature management - like experiment new feature with selected user pools  and make GA and feature retirement.
 - Micro-service should not be just wrapper over data store it should have some logic. Always need to make balance between number of fine grained micro-services and functionality. If not there could be very large number of micro-services.
-
+- API should be considered sync or async while designing. Mixing those two things create problem.
 
    
     
