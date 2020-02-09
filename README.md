@@ -1,9 +1,12 @@
+### Goal
+- Create example service with all aspect , production ready service deployed in any cloud (using K8s).
+
 # employeeservice
-employee service using spring boot and cassandra
+- Sample service where you can do CRUD operations.
+- employee service using spring boot and cassandra
 
 ### API Documentation 
 http://localhost:8080/swagger-ui.html
-
 
 ### InSights 
 // TODO - arrage conent based on aspects 
@@ -11,6 +14,7 @@ http://localhost:8080/swagger-ui.html
 - API models should be different than DAO and Business Models. Business model and DAO can be same as it is not exposed to external users.
 - Need API versioning strategy from start.
 - Need to calculate API load using requests per seconds per api.
+- Consider auto-generating clients in different language as part of api development. So that consumer can adopt to new api faster.
 - Need exception mapping to error codes and messages to external user so that they can take meaningful action.
 - Need validation on fields so that external user do not exploit system with garbage data.
 - Need have global threadpool per application so that there are no large number of threadpools proliferated in code
